@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <PreferenceCategory android:title="@string/pref_aplicacion" >
+        <EditTextPreference
+            android:key="url"
+            android:summary="@string/url_servidor_summary"
+            android:title="@string/url_servidor" />
+        <EditTextPreference
+            android:key="cuentaemail"
+            android:summary="@string/cuenta_email_summary"
+            android:title="@string/cuenta_email" />
+
+        <ListPreference
+            android:defaultValue="C"
+            android:entries="@array/escalas_temperartura"
+            android:entryValues="@array/valores_escalas_temperatura"
+            android:key="escalatemperatura"
+            android:summary="@string/escala_temperatura_summary"
+            android:title="@string/escala_temperatura" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

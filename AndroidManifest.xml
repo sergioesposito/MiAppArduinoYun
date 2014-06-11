@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="upm.miw.saespositi.miarduinoyun"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="9"
+        android:targetSdkVersion="17" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="upm.miw.saesposito.miarduinoyun.activities.MiArduinoYunPrincipal"
+            android:label="@string/app_name"  
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="upm.miw.saesposito.miarduinoyun.activities.Preferencias"
+            android:label="@string/pref_aplicacion" 
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="upm.miw.saesposito.miarduinoyun.activities.ControlarYun"
+            android:label="@string/control_ic" 
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+    android:name="upm.miw.saesposito.miarduinoyun.activities.ServiciosYun"
+            android:label="@string/services_ic" 
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="upm.miw.saesposito.miarduinoyun.activities.ControlarLed"
+            android:label="@string/led_ic" 
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="upm.miw.saesposito.miarduinoyun.activities.ConsultarTemperatura"
+            android:label="@string/temperatura_ic" 
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="upm.miw.saesposito.miarduinoyun.activities.ConsultarStatusWifi"
+            android:label="@string/wifi_ic" 
+            android:screenOrientation="portrait">
+        </activity>
+         <activity
+            android:name="upm.miw.saesposito.miarduinoyun.activities.EscribirEmail"
+            android:label="@string/wifi_ic" 
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="upm.miw.saesposito.miarduinoyun.activities.EscribirTweet"
+            android:label="@string/wifi_ic" 
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="upm.miw.saesposito.miarduinoyun.activities.StatusFacebook"
+            android:label="@string/wifi_ic" 
+            android:screenOrientation="portrait">
+        </activity>
+        
+    </application>
+
+</manifest>

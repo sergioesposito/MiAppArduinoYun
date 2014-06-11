@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">MiArduinoYun</string>
+    <string name="action_settings">Configurar</string>
+    <string name="hello_world">¡Bienvenido!</string>
+    <string name="control_ic">Controlar YÚN</string>
+    <string name="led_ic">Controlar LED</string>
+    <string name="temperatura_ic">Temperatura</string>
+    <string name="wifi_ic">Status WiFi</string>
+    <string name="email_ic">Enviar email</string>
+    <string name="twitter_ic">Escribir tweet</string>
+    <string name="facebook_ic">Actualizar Status en Facebook</string>
+    <string name="services_ic">Servicios YÚN</string>
+    <string name="hint_servicios_Yun">Envío de email y tweets a través del  YÚN</string>
+    <string name="hint_controlar_Yun">Acceso a recursos del  YÚN</string>
+    <string name="hint_led_Yun">Encender, apagar y consultar estado de LED 13 del YÚN</string>
+    <string name="hint_temperatura_Yun">Leer sensor de temperatura conectado al   YÚN</string>
+    <string name="hint_wifi_Yun">Consultar estado de red wifi del  YÚN</string>
+    <string name="hint_email_Yun">Enviar emails a través del  YÚN</string>
+    <string name="hint_tweet_Yun">Escribir tweets a través del  YÚN</string>
+    <string name="progress_title">Procesando petición&#8230;</string>
+    <string name="progress_conectando">Verificando conexión con Arduino YÚN&#8230;</string>
+    <string name="pref_aplicacion">Preferencias de la aplicación</string>
+    <string name="url_servidor">URL Arduino YÚN</string>
+    <string name="url_servidor_summary">Dirección del Arduino YÚN al que se realizará la conexión</string>
+    <string name="escala_temperatura">Escala Temperatura</string>
+    <string name="escala_temperatura_summary">Escala de medición de temperatura (Celsius o Fahrenheit)</string>
+    <string name="cuenta_email">Cuenta email</string>
+    <string name="cuenta_email_summary">Cuenta desde la cual se realizará el envío de emails</string>
+    <string name="servicioConectado">Servicio conectado</string>
+    <string name="servicioNoConectado">No se ha podido establecer la conexión con el Arduino YÚN. Configure la conexión</string>
+    <string name="errorServicio">Error procesando respuesta del Arduino YÚN. Revise la conexión y su configuración</string>
+    <string name="tweet">Tweet</string>
+    <string name="actualizar">Actualizar</string>
+    <string name="tweetEnviado">Tweet enviado</string>
+    <string name="caracteresRestantes">Caracteres restantes</string>
+    <string name="tweetNoEnviado">Tweet no enviado, problemas en la conexión</string>
+    <string name="statusActualizado">Status actualizado</string>
+    <string name="statusNoActualizado">Status no actualizado, problemas en la conexión</string>
+    <string name="campoVacio">Debe escribir al menos un caracter</string>
+    <string name="limpiar">Limpiar</string>
+    <string name="para">Para</string>
+    <string name="asunto">Asunto</string>
+    <string name="texto">Texto</string>
+    <string name="emailEnviado">Email enviado</string>
+    <string name="emailNoEnviado">Email no enviado, revise su conexión</string>
+    <string name="direccionOrigenInvalida">Dirección email origen inválida o no configurada, configúrela en las preferencias de la aplicación</string>
+    <string name="direccionDestinoInvalida">Debe escribir una dirección email válida</string>
+    <string name="nulo"></string>
+</resources>

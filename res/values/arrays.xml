@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="escalas_temperartura">
+        <item>"Celsius"</item>
+        <item>"Fahrenheit"</item>
+    </string-array>
+    <string-array name="valores_escalas_temperatura">
+        <item>"C"</item>
+        <item>"F"</item>
+     </string-array>
+
+</resources>
