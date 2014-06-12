@@ -53,7 +53,7 @@ public abstract class ActivityRedSocial extends ActivityBase {
 			String miUrl = urlPrefsConexion + url
 					+ textoSubirRedSocial.getText() + TERMINADOR;
 			miUrl = miUrl.replaceAll(" ", ESPACIOENCODED);
-			new AccesoRedSocial(pDialog, context,
+			new AccesoRedSocial(pDialog, 
 					getString(R.string.progress_title), miUrl, idToastOK,
 					idToastErr).execute();
 
@@ -67,10 +67,10 @@ public abstract class ActivityRedSocial extends ActivityBase {
 		private int idToastOK;
 		private int idToastErr;
 
-		public AccesoRedSocial(ProgressDialog pDialog, Context context,
+		public AccesoRedSocial(ProgressDialog pDialog, 
 				CharSequence messagePDialog, String url, int idToastOK,
 				int idToastErr) {
-			super(pDialog, context, messagePDialog, url);
+			super(pDialog,  messagePDialog, url);
 			this.idToastOK = idToastOK;
 			this.idToastErr = idToastErr;
 		}

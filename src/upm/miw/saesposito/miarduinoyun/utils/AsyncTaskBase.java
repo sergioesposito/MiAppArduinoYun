@@ -4,20 +4,17 @@ import org.apache.http.HttpResponse;
 
 
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.os.AsyncTask;
 
 public abstract class AsyncTaskBase extends AsyncTask<Void, Void, HttpResponse> {
 	protected ProgressDialog pDialog;
-	protected Context context;
 	protected String url;
 	protected CharSequence messagePDialog;
 	protected String messageWebService;
 	private GestorWebServices gestorWebServices;
 
-	public AsyncTaskBase(ProgressDialog pDialog, Context context, CharSequence messagePDialog, String url) {
+	public AsyncTaskBase(ProgressDialog pDialog,  CharSequence messagePDialog, String url) {
 		this.pDialog = pDialog;
-		this.context = context;
 		this.url = url;
 		this.messagePDialog = messagePDialog;
 		gestorWebServices = GestorWebServices.getGestorWebServices();

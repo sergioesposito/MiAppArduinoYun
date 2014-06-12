@@ -10,7 +10,6 @@ import upm.miw.saesposito.miarduinoyun.utils.AsyncTaskBase;
 
 import upm.miw.saespositi.miarduinoyun.R;
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -39,7 +38,7 @@ public class ControlarLed extends ActivityBase {
 		pDialog = new ProgressDialog(ControlarLed.this);
 		url = urlPrefsConexion + URLBASE + ACCIONLEER;
 		Log.i("ControlarLed.onCreate, url= ", url);
-		new AccesoLed(pDialog, ControlarLed.this,
+		new AccesoLed(pDialog, 
 				getString(R.string.progress_title), url).execute();
 	}
 
@@ -60,8 +59,8 @@ public class ControlarLed extends ActivityBase {
 			url = urlPrefsConexion + URLBASE + ACCIONON;
 		}
 		Log.i("onOffLed", url);
-		new AccesoLed(pDialog, ControlarLed.this,
-				getString(R.string.progress_title), url).execute();
+		new AccesoLed(pDialog, getString(R.string.progress_title), url)
+				.execute();
 	}
 
 	private void parseResponseString(String responseString) {
@@ -107,18 +106,17 @@ public class ControlarLed extends ActivityBase {
 			Log.i("parseResponseString", "imagenes listas");
 		} catch (JSONException e) {
 			e.printStackTrace();
-			Toast.makeText(getApplicationContext(),
-					R.string.errorServicio, Toast.LENGTH_SHORT)
-					.show();
+			Toast.makeText(getApplicationContext(), R.string.errorServicio,
+					Toast.LENGTH_SHORT).show();
 		}
 
 	}
 
 	class AccesoLed extends AsyncTaskBase {
 
-		public AccesoLed(ProgressDialog pDialog, Context context,
-				CharSequence messagePDialog, String url) {
-			super(pDialog, context, messagePDialog, url);
+		public AccesoLed(ProgressDialog pDialog, CharSequence messagePDialog,
+				String url) {
+			super(pDialog, messagePDialog, url);
 			// TODO Auto-generated constructor stub
 		}
 

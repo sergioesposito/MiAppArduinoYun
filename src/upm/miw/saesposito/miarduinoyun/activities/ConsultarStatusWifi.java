@@ -5,7 +5,6 @@ import upm.miw.saespositi.miarduinoyun.R;
 import upm.miw.saesposito.miarduinoyun.utils.ActivityBase;
 import upm.miw.saesposito.miarduinoyun.utils.AsyncTaskBase;
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.EditText;
@@ -26,7 +25,7 @@ public class ConsultarStatusWifi extends ActivityBase {
 		}
 		ProgressDialog pDialog = new ProgressDialog(ConsultarStatusWifi.this);
 
-		new AccesoStatusWifi(pDialog, ConsultarStatusWifi.this,
+		new AccesoStatusWifi(pDialog, 
 				getString(R.string.progress_title), urlPrefsConexion + URLBASE)
 				.execute();
 	}
@@ -55,9 +54,9 @@ public class ConsultarStatusWifi extends ActivityBase {
 
 	class AccesoStatusWifi extends AsyncTaskBase {
 
-		public AccesoStatusWifi(ProgressDialog pDialog, Context context,
+		public AccesoStatusWifi(ProgressDialog pDialog, 
 				CharSequence messagePDialog, String url) {
-			super(pDialog, context, messagePDialog, url);
+			super(pDialog,  messagePDialog, url);
 			// TODO Auto-generated constructor stub
 		}
 

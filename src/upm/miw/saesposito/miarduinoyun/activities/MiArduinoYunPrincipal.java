@@ -11,7 +11,6 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.app.Activity;
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.util.Log;
@@ -52,7 +51,7 @@ public class MiArduinoYunPrincipal extends Activity {
 			pDialog = new ProgressDialog(MiArduinoYunPrincipal.this);
 			url = urlPrefsConexion + URLBASE + ACCIONLEER;
 			Log.i("Principal.comprobarConexion", url);
-			new PruebaConexion(pDialog, MiArduinoYunPrincipal.this,
+			new PruebaConexion(pDialog,
 					getString(R.string.progress_conectando), url).execute();
 
 		} else {
@@ -116,9 +115,9 @@ public class MiArduinoYunPrincipal extends Activity {
 
 	class PruebaConexion extends AsyncTaskBase {
 
-		public PruebaConexion(ProgressDialog pDialog, Context context,
+		public PruebaConexion(ProgressDialog pDialog, 
 				CharSequence messagePDialog, String url) {
-			super(pDialog, context, messagePDialog, url);
+			super(pDialog, messagePDialog, url);
 			// TODO Auto-generated constructor stub
 		}
 

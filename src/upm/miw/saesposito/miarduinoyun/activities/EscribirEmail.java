@@ -3,7 +3,6 @@ package upm.miw.saesposito.miarduinoyun.activities;
 import org.apache.http.HttpResponse;
 
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -65,7 +64,7 @@ public class EscribirEmail extends ActivityBase {
 						+ texto.getText() + TERMINADOR;
 				miUrl = miUrl.replaceAll(" ", ESPACIOENCODED);
 				Log.i("escribirEmail", "miUrl=" + miUrl);
-				new AccesoEscribirEmail(pDialog, EscribirEmail.this,
+				new AccesoEscribirEmail(pDialog, 
 						getString(R.string.progress_title), miUrl).execute();
 
 			} else {
@@ -83,9 +82,9 @@ public class EscribirEmail extends ActivityBase {
 
 	class AccesoEscribirEmail extends AsyncTaskBase {
 
-		public AccesoEscribirEmail(ProgressDialog pDialog, Context context,
+		public AccesoEscribirEmail(ProgressDialog pDialog, 
 				CharSequence messagePDialog, String url) {
-			super(pDialog, context, messagePDialog, url);
+			super(pDialog, messagePDialog, url);
 			// TODO Auto-generated constructor stub
 		}
 

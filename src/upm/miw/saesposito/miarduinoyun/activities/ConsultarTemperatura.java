@@ -5,7 +5,6 @@ import upm.miw.saespositi.miarduinoyun.R;
 import upm.miw.saesposito.miarduinoyun.utils.ActivityBase;
 import upm.miw.saesposito.miarduinoyun.utils.AsyncTaskBase;
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -37,7 +36,7 @@ public class ConsultarTemperatura extends ActivityBase {
 		String miUrl = urlPrefsConexion + URLBASE + escalaTemperatura;
 		Log.i("ConsultarTemperatura-onCreate", "miUrl=" + miUrl);
 		
-		new AccesoSensorTemperatura(pDialog, ConsultarTemperatura.this,
+		new AccesoSensorTemperatura(pDialog, 
 				getString(R.string.progress_title), miUrl).execute();
 	}
 
@@ -69,9 +68,9 @@ public class ConsultarTemperatura extends ActivityBase {
 
 	class AccesoSensorTemperatura extends AsyncTaskBase {
 
-		public AccesoSensorTemperatura(ProgressDialog pDialog, Context context,
+		public AccesoSensorTemperatura(ProgressDialog pDialog, 
 				CharSequence messagePDialog, String url) {
-			super(pDialog, context, messagePDialog, url);
+			super(pDialog, messagePDialog, url);
 			// TODO Auto-generated constructor stub
 		}
 
