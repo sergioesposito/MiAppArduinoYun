@@ -21,12 +21,12 @@ import android.view.View;
 import android.widget.Toast;
 
 public class MiArduinoYunPrincipal extends Activity {
-	private final int CONTROLARYUN = 1;
-	private final int SERVICIOSYUN = 2;
-	private final int PREFERENCIAS = 3;
+	private static final int CONTROLARYUN = 1;
+	private static final int SERVICIOSYUN = 2;
+	private static final int PREFERENCIAS = 3;
 	private static final String URLBASE = "controlar/led/";
 	private static final String ACCIONLEER = "leer";
-	String urlPrefsConexion;
+	private String urlPrefsConexion;
 	private String url;
 	private ProgressDialog pDialog;
 
@@ -44,7 +44,7 @@ public class MiArduinoYunPrincipal extends Activity {
 		return true;
 	}
 
-	void comprobarConexion() {
+	private void comprobarConexion() {
 		SharedPreferences preferences = PreferenceManager
 				.getDefaultSharedPreferences(this);
 		urlPrefsConexion = preferences.getString("url", "");

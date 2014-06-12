@@ -37,7 +37,7 @@ public class ConsultarStatusWifi extends ActivityBase {
 		return R.layout.activity_consultar_status_wifi;
 	}
 
-	void parseResponseString(String responseString) {
+	private void parseResponseString(String responseString) {
 		String statusWifi =  parseResponseStringKey(responseString, KEYJSON);
 		if(!statusWifi.equals(ERRORPARSING)) {
 			Log.i("parseResponseString", "entrando"); 

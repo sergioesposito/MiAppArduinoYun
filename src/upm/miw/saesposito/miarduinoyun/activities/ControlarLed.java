@@ -64,7 +64,7 @@ public class ControlarLed extends ActivityBase {
 				getString(R.string.progress_title), url).execute();
 	}
 
-	void parseResponseString(String responseString) {
+	private void parseResponseString(String responseString) {
 		JSONArray auxJa = null;
 		int resourceBulb;
 		boolean valorToggle;

@@ -8,9 +8,9 @@ import android.os.StrictMode;
 import android.view.View;
 
 public class ControlarYun extends Activity{
-	private final int CONTROLARLED = 1;
-	private final int LEERTEMPERATURA = 2;
-	private final int LEERSTATUSWIFI = 3;
+	private static final int CONTROLARLED = 1;
+	private static final int LEERTEMPERATURA = 2;
+	private static final int LEERSTATUSWIFI = 3;
 	private Bundle extras;
 
 	@Override

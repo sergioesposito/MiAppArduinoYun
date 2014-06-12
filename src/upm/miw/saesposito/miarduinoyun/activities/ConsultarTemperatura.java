@@ -47,7 +47,7 @@ public class ConsultarTemperatura extends ActivityBase {
 		return R.layout.activity_consultar_temperatura;
 	}
 
-	void parseResponseString(String responseString) {
+	private void parseResponseString(String responseString) {
 		String temperatura = parseResponseStringKey(responseString, KEYJSON);
 		if (!temperatura.equals(ERRORPARSING)) {
 			Log.i("parseResponseString-temperatura", temperatura);
