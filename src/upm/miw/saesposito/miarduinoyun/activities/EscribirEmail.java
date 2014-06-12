@@ -39,7 +39,7 @@ public class EscribirEmail extends ActivityBase {
 		return R.layout.activity_escribir_email;
 	}
 
-	public final static boolean isValidEmail(CharSequence target) {
+	private final static boolean isValidEmail(CharSequence target) {
 		return !TextUtils.isEmpty(target)
 				&& android.util.Patterns.EMAIL_ADDRESS.matcher(target)
 						.matches();
