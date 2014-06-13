@@ -56,17 +56,17 @@
         </activity>
          <activity
             android:name="upm.miw.saesposito.miarduinoyun.activities.EscribirEmail"
-            android:label="@string/wifi_ic" 
+            android:label="@string/email_ic" 
             android:screenOrientation="portrait">
         </activity>
         <activity
             android:name="upm.miw.saesposito.miarduinoyun.activities.EscribirTweet"
-            android:label="@string/wifi_ic" 
+            android:label="@string/twitter_ic" 
             android:screenOrientation="portrait">
         </activity>
         <activity
             android:name="upm.miw.saesposito.miarduinoyun.activities.StatusFacebook"
-            android:label="@string/wifi_ic" 
+            android:label="@string/facebook_ic" 
             android:screenOrientation="portrait">
         </activity>
         
