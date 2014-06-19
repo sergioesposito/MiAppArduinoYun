@@ -13,19 +13,22 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
 
 public final class GestorWebServices {
-	private final static int ERRORRESPUESTAYUN = -1;
-	private final static String MENSAJEERRORRESPUESTAYUN = "Error obteniendo respuesta del  Arduino YÚN";
-	private static GestorWebServices gestorWebServices = new GestorWebServices();
+	private final static int ERRORRESPUESTAYUN = -1;//código de respuesta en caso de excepciones
+	private final static String MENSAJEERRORRESPUESTAYUN = "Error obteniendo respuesta del  Arduino YÚN"; //mensaje de respuesta en caso de excepciones
+	private static GestorWebServices gestorWebServices = new GestorWebServices(); //patrón Singleton
 	
+	//Constructor privado, patrón Singleton
 	private  GestorWebServices() {
 		
 	}
 
+	//Método para obtener acceso a la única instancia, patrón Singleton 
 	public static GestorWebServices getGestorWebServices() {
 		return GestorWebServices.gestorWebServices;
 	}
 	
-	public HttpResponse doInBackgroundAsincrono(String laURL) {
+	//Método para ejecutar una llamada http GET al recurso alojado en la URL laURL.
+	public HttpResponse ejecutaLlamadaHttpGet(String laURL) {
 		HttpResponse response = null;
 		try {
 			HttpClient httpClient = new DefaultHttpClient();
@@ -42,7 +45,8 @@ public final class GestorWebServices {
 
 	}
 
-	public String postExecuteAsincrono(HttpResponse response) {
+	//Método para convertir un objeto HttpResponse en un String que pueda ser interpretado
+	public String convierteHttpResponseAString(HttpResponse response) {
 		int responseCode;
 		String responseMessage;
 

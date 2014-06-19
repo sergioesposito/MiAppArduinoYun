@@ -12,12 +12,13 @@ import android.util.Log;
 import android.widget.Toast;
 
 public abstract class ActivityBase extends Activity {
-	protected String urlPrefsConexion;
-	protected static final String ERRORPARSING = "ERRORPARSING";
-	protected static final String TERMINADOR = "%13";
-	protected static final String SEPARADOR = "&";
-	protected static final String ESPACIOENCODED = "%20";
+	protected String urlPrefsConexion; //para que las actividades reciban el valor de la url base de acceso a los servicios web 
+	protected static final String ERRORPARSING = "ERRORPARSING"; //valor a retornar si en el json de la respuesta no se encuentra la clave buscada
+	protected static final String TERMINADOR = "%13"; //utilizado en la construcción de la url de acceso a los servicios
+	protected static final String SEPARADOR = "&"; //utilizado en la construcción de la url de acceso a los servicios
+	protected static final String ESPACIOENCODED = "%20";//utilizado en la construcción de la url de acceso a los servicios
 
+	//Sobreescritura del método onCreate de la clase Activity
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -28,8 +29,12 @@ public abstract class ActivityBase extends Activity {
 		}
 	}
 
+	//Este método será implementado por las clases concretas, en cada caso retornará el Id del layout de la actividad
 	protected abstract int getLayoutResourceId();
 
+	//Método que obtiene el valor asociado a una clave dentro de una cadena con formato json
+	//Será utilizado por las clases concretas que consuman un servicio web cuyo
+	//json de respuesta no sea de la forma [{"Resultado":"n"}]
 	protected String parseResponseStringKey(String responseString, String key) {
 		JSONArray auxJa = null;
 
@@ -44,6 +49,10 @@ public abstract class ActivityBase extends Activity {
 		}
 	}
 
+	//Método que obtiene el valor asociado a la clave "Resultado" dentro de una cadena con formato json
+	//y que dependiendo del mismo muestra al usuario un mensaje u otro
+	//Será utilizado por las clases concretas que consuman un servicio web cuyo
+	//json de respuesta sea de la forma [{"Resultado":"n"}]
 	protected void parseResponseStringResultado(String responseString,
 			int idToastOK, int idToastErr) {
 		JSONArray auxJa = null;

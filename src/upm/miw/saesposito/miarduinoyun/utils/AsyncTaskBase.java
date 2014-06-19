@@ -7,12 +7,13 @@ import android.app.ProgressDialog;
 import android.os.AsyncTask;
 
 public abstract class AsyncTaskBase extends AsyncTask<Void, Void, HttpResponse> {
-	protected ProgressDialog pDialog;
-	protected String url;
-	protected CharSequence messagePDialog;
-	protected String messageWebService;
-	private GestorWebServices gestorWebServices;
+	protected ProgressDialog pDialog; //para mostrar al usuario el mensaje de espera 
+	protected String url;  //url del servicio web a acceder
+	protected CharSequence messagePDialog; //texto del mensaje de espera
+	protected String messageWebService; //respuesta del web service
+	private GestorWebServices gestorWebServices; //se le asignará la única instancia del GestorWebServices
 
+	//Constructor público
 	public AsyncTaskBase(ProgressDialog pDialog,  CharSequence messagePDialog, String url) {
 		this.pDialog = pDialog;
 		this.url = url;
@@ -20,9 +21,7 @@ public abstract class AsyncTaskBase extends AsyncTask<Void, Void, HttpResponse> 
 		gestorWebServices = GestorWebServices.getGestorWebServices();
 	}
 
-	/**
-	 * Before starting background thread Show Progress Dialog
-	 * */
+	//Tareas previas a ejecutar en la interfaz gráfica antes de la tarea en background: preparar y mostrar el mensaje de espera
 	@Override
 	protected void onPreExecute() {
 		super.onPreExecute();
@@ -32,26 +31,21 @@ public abstract class AsyncTaskBase extends AsyncTask<Void, Void, HttpResponse> 
 		pDialog.show();
 	}
 
-	/**
-	 * Obtaining info
-	 * 
-	 * @return
-	 * */
+	//Tarea a ejecutar en background
 	@Override
 	protected HttpResponse doInBackground(Void... params) {
 		HttpResponse response = gestorWebServices
-				.doInBackgroundAsincrono(url);
+				.ejecutaLlamadaHttpGet(url);
 		return response;
 	}
 
-	/**
-	 * After completing background task Dismiss the progress dialog
-	 * **/
+	//Tareas a ejecutar cuando termine la tarea en background: quitar de la interfaz el mensaje de espera
+	//y convertir la respuesta de la llamada httpget a string en formato json
 	@Override
 	protected void onPostExecute(HttpResponse response) {
 		// dismiss the dialog once done
 		pDialog.dismiss();
-		messageWebService = gestorWebServices.postExecuteAsincrono(response);
+		messageWebService = gestorWebServices.convierteHttpResponseAString(response);
 	
 	}
 }

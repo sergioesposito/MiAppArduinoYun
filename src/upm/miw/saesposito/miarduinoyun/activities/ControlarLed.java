@@ -19,13 +19,17 @@ import android.widget.ToggleButton;
 
 public class ControlarLed extends ActivityBase {
 
-	private static final String URLBASE = "controlar/led/";
-	private static final String ACCIONLEER = "leer";
-	private static final String ACCIONON = "1";
-	private static final String ACCIONOFF = "0";
-	private String url;
-	private ProgressDialog pDialog;
+	private static final String URLBASE = "controlar/led/"; //constante utilizada para la url de acceso al servicio web
+	private static final String ACCIONLEER = "leer"; //constante utilizada para la url de acceso al servicio web
+	private static final String ACCIONON = "1"; //constante utilizada para la url de acceso al servicio web
+	private static final String ACCIONOFF = "0"; //constante utilizada para la url de acceso al servicio web
+	private String url; //url de acceso al servicio web
+	private ProgressDialog pDialog; //para mostrar al usuario el mensaje de espera
 
+	//Se sobreescribe el método onCreate, ejecutando el de la superclase, 
+	//recuperando los extras de la actividad anterior, construyendo la url de acceso 
+	//al servicio web Controlar Led con la acción leer, y finalmente accediendo al 
+	//servicio, instanciando a la clase AccesoLed y ejecutando su método execute
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -42,12 +46,17 @@ public class ControlarLed extends ActivityBase {
 				getString(R.string.progress_title), url).execute();
 	}
 
+	//Sobreescribe el método de su superclase, retornando el Id del layout 
 	@Override
 	protected int getLayoutResourceId() {
 		// TODO Auto-generated method stub
 		return R.layout.activity_controlar_led;
 	}
 
+	//Captura del layout la acción del usuario sobre el botón Toggle, y dependiendo
+	//del valor obtenido  construye la url de acceso 
+	//al servicio web Controlar Led con la acción 1(ON) ó 0(OFF) y finalmente accede al 
+	//servicio, instanciando a la clase AccesoLed y ejecutando su método execute
 	public void onOffLed(View view) {
 		Log.i("onOffLed", "onOffLed");
 		ToggleButton toggleButtonOnOff = (ToggleButton) findViewById(R.id.toggleButton_on_off);
@@ -63,6 +72,7 @@ public class ControlarLed extends ActivityBase {
 				.execute();
 	}
 
+	//Ejecuta el parsing del json de respuesta y actualiza el layout
 	private void parseResponseString(String responseString) {
 		JSONArray auxJa = null;
 		int resourceBulb;
@@ -114,12 +124,15 @@ public class ControlarLed extends ActivityBase {
 
 	class AccesoLed extends AsyncTaskBase {
 
+		//Constructor público
 		public AccesoLed(ProgressDialog pDialog, CharSequence messagePDialog,
 				String url) {
 			super(pDialog, messagePDialog, url);
 			// TODO Auto-generated constructor stub
 		}
 
+		//Sobreescribe el método onPostExecute: ejecuta el de su superclase 
+		//y procesa la respuesta del servicio web 
 		@Override
 		protected void onPostExecute(HttpResponse response) {
 			super.onPostExecute(response);

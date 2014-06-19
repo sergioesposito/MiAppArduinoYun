@@ -16,13 +16,15 @@ import upm.miw.saesposito.miarduinoyun.utils.ActivityBase;
 import upm.miw.saesposito.miarduinoyun.utils.AsyncTaskBase;
 
 public class EscribirEmail extends ActivityBase {
-	private static final String URLBASE = "servicios/email" + "%3F";
-	private static final String NOMBREPARAM1 = "de=";
-	private static final String NOMBREPARAM2 = "para=";
-	private static final String NOMBREPARAM3 = "asunto=";
-	private static final String NOMBREPARAM4 = "texto=";
+	private static final String URLBASE = "servicios/email" + "%3F";//constante utilizada para la url de acceso al servicio web
+	private static final String NOMBREPARAM1 = "de="; //primer parametro de la llamada httpget
+	private static final String NOMBREPARAM2 = "para="; //segundo parametro de la llamada httpget
+	private static final String NOMBREPARAM3 = "asunto="; //tercer parametro de la llamada httpget
+	private static final String NOMBREPARAM4 = "texto="; //cuarto parametro de la llamada httpget
 	
 
+	//Se sobreescribe el método onCreate, ejecutando el de la superclase,  
+	//recuperando la url de conexion de los extras, 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -34,17 +36,24 @@ public class EscribirEmail extends ActivityBase {
 		}
 	}
 
+	//Sobreescribe el método de su superclase, retornando el Id del layout
 	@Override
 	protected int getLayoutResourceId() {
 		return R.layout.activity_escribir_email;
 	}
 
+	//valida si la cadena de caracteres recibida tiene el formato de una direccion email 
 	private final static boolean isValidEmail(CharSequence target) {
 		return !TextUtils.isEmpty(target)
 				&& android.util.Patterns.EMAIL_ADDRESS.matcher(target)
 						.matches();
 	}
 
+	//Extrae del layout la direccion destino y de las preferencias la direccion origen,
+	//si ambas tienen formato correcto extrae del layout el asunto y el texto,
+	//forma la url de acceso al servicio, y ejecuta el acceso al mismo
+	//instanciando a la clase AccesoEscribirEmail 
+	//y ejecutando su método execute
 	public void escribirEmail(View view) {
 		EditText para = (EditText) findViewById(R.id.editTextPara);
 		SharedPreferences preferences = PreferenceManager
@@ -80,14 +89,18 @@ public class EscribirEmail extends ActivityBase {
 
 	}
 
+	
 	class AccesoEscribirEmail extends AsyncTaskBase {
 
+		//Constructor público
 		public AccesoEscribirEmail(ProgressDialog pDialog, 
 				CharSequence messagePDialog, String url) {
 			super(pDialog, messagePDialog, url);
 			// TODO Auto-generated constructor stub
 		}
 
+		//Sobreescribe el método onPostExecute: ejecuta el de su superclase 
+		//y procesa la respuesta del servicio web
 		@Override
 		protected void onPostExecute(HttpResponse response) {
 			super.onPostExecute(response);

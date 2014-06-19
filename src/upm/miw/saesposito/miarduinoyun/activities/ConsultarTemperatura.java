@@ -15,10 +15,16 @@ import android.widget.Toast;
 
 public class ConsultarTemperatura extends ActivityBase {
 
-	private static final String URLBASE = "controlar/temperatura/";
-	private static final String KEYJSON = "temperatura";
-	private String escalaTemperatura;
+	private static final String URLBASE = "controlar/temperatura/";//constante utilizada para la url de acceso al servicio web
+	private static final String KEYJSON = "temperatura"; //clave a buscar en el json de respuesta
+	private String escalaTemperatura; //su valor será C Ó F dependiendo de la escala configurada
 
+	//Se sobreescribe el método onCreate, ejecutando el de la superclase,  
+	//recuperando de las preferencias la escala de temperatura, 
+	// construyendo la url de acceso 
+	//al servicio web Consultar Temperatura, y finalmente accediendo al 
+	//servicio, instanciando a la clase AccesoSensorTemperatura 
+	//y ejecutando su método execute
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -40,12 +46,14 @@ public class ConsultarTemperatura extends ActivityBase {
 				getString(R.string.progress_title), miUrl).execute();
 	}
 
+	//Sobreescribe el método de su superclase, retornando el Id del layout
 	@Override
 	protected int getLayoutResourceId() {
 		// TODO Auto-generated method stub
 		return R.layout.activity_consultar_temperatura;
 	}
 
+	//Ejecuta el parsing del json de respuesta y actualiza el layout
 	private void parseResponseString(String responseString) {
 		String temperatura = parseResponseStringKey(responseString, KEYJSON);
 		if (!temperatura.equals(ERRORPARSING)) {
@@ -68,12 +76,15 @@ public class ConsultarTemperatura extends ActivityBase {
 
 	class AccesoSensorTemperatura extends AsyncTaskBase {
 
+		//Constructor público
 		public AccesoSensorTemperatura(ProgressDialog pDialog, 
 				CharSequence messagePDialog, String url) {
 			super(pDialog, messagePDialog, url);
 			// TODO Auto-generated constructor stub
 		}
 
+		//Sobreescribe el método onPostExecute: ejecuta el de su superclase 
+		//y procesa la respuesta del servicio web 
 		@Override
 		protected void onPostExecute(HttpResponse response) {
 			super.onPostExecute(response);
